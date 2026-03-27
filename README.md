@@ -35,6 +35,8 @@ window.selmaReportWorkerBase = "https://reports.selma.se";
 
 Worker CORS must allow your site origin. Setting `selmaReportWorkerBase` to an empty string disables these requests.
 
+**Report ready (`POST /internal/report-ready`):** When ACE sends results in the iframe, core can call this route with `Authorization: Bearer …`. Set **`window.selmaReportWorkerInternalSecret`** before loading scripts (see `test-scanner.html` for local testing). **Do not commit long-lived secrets**; rotate the secret in Wrangler if it was ever exposed.
+
 ## Architecture
 
 The scanner workflow:

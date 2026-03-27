@@ -134,6 +134,9 @@
     <!-- Enable local debug mode -->
     <script>
         window.selmaDebugLocal = true;
+        /** TEMP: Bearer for POST /internal/report-ready — rotate in worker and remove before production. */
+        window.selmaReportWorkerInternalSecret =
+            "0d40c67ae1d3b3ac1711dfa7ec912438d2f066cefde9b3a662c971ab77839234";
         console.log('🔧 Local debug mode enabled');
     </script>
 
