@@ -23,6 +23,18 @@ window.selmaDebugLocal = true;
 ```
 Open `test-scanner.html` in your browser to test the scanner locally.
 
+### Report API worker
+
+Scans and contact leads are synced to the report API (`POST /api/scan`, `POST /api/contact`). Default base is **`https://reports.selma.se`**. With **`window.selmaDebugLocal = true`** (before loading scripts), the worker base is **`http://localhost:8787`** for local Wrangler. Open the test page over **http** or **file** so the browser allows calling `localhost`; on **https** pages, mixed-content rules may block `http://localhost` unless you use a tunnel or override `selmaReportWorkerBase`.
+
+To use another base URL (e.g. local dev), set **before** loading the scanner scripts:
+
+```javascript
+window.selmaReportWorkerBase = "https://reports.selma.se";
+```
+
+Worker CORS must allow your site origin. Setting `selmaReportWorkerBase` to an empty string disables these requests.
+
 ## Architecture
 
 The scanner workflow:
